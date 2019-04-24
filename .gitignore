@@ -11,3 +11,5 @@ lib
 
 # Test files
 coverage
+
+.history

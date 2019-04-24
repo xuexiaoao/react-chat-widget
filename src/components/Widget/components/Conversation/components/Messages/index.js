@@ -37,7 +37,7 @@ class Messages extends Component {
   }
 
   render() {
-    const { messages, profileAvatar, typing } = this.props;
+    const { messages, profileAvatar, typing, userInput } = this.props;
     return (
       <div id="messages" className="rcw-messages-container" ref={msg => this.$message = msg}>
         {messages.map((message, index) =>
@@ -49,7 +49,7 @@ class Messages extends Component {
             {this.getComponentToRender(message)}
           </div>
         )}
-        <Loader typing={typing} />
+        <Loader typing={typing} userInput={userInput} />
       </div>
     );
   }
@@ -62,5 +62,6 @@ Messages.propTypes = {
 
 export default connect(store => ({
   messages: store.messages,
-  typing: store.behavior.get('msgLoader')
+  typing: store.behavior.get('msgLoader'),
+  userInput: store.behavior.get('userInput')
 }))(Messages);

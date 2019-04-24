@@ -38,6 +38,7 @@ class Widget extends Component {
   render() {
     return (
       <WidgetLayout
+        inputRef={this.props.inputRef}
         onToggleConversation={this.toggleConversation}
         onSendMessage={this.handleMessageSubmit}
         onQuickButtonClicked={this.handleQuickButtonClicked}
@@ -51,6 +52,14 @@ class Widget extends Component {
         badge={this.props.badge}
         autofocus={this.props.autofocus}
         customLauncher={this.props.customLauncher}
+        customSender={this.props.customSender}
+        onTap={this.props.onTap}
+        onPress={this.props.onPress}
+        onPressUp={this.props.onPressUp}
+        onPanUp ={this.props.onPanUp }
+        onPanLeft={this.props.onPanLeft}
+        onPanRight={this.props.onPanRight}
+        onPanDown={this.props.onPanDown}
       />
     );
   }
@@ -68,7 +77,14 @@ Widget.propTypes = {
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
-  customLauncher: PropTypes.func
+  customLauncher: PropTypes.func,
+  onTap: PropTypes.func,
+  onPress: PropTypes.func,
+  onPressUp: PropTypes.func,
+  onPanUp: PropTypes.func,
+  onPanLeft: PropTypes.func,
+  onPanRight: PropTypes.func,
+  onPanDown: PropTypes.func
 };
 
 export default connect()(Widget);

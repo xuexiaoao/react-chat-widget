@@ -9,7 +9,11 @@ import {
   toggleMsgLoader,
   dropMessages,
   isWidgetOpened,
-  setQuickButtons
+  setQuickButtons,
+  toggleVoice,
+  toggleVoiceModel,
+  toggleCancelVoice,
+  getCancelVoiceState
 } from './src/store/dispatcher';
 
 export {
@@ -23,5 +27,9 @@ export {
   toggleMsgLoader,
   dropMessages,
   isWidgetOpened,
-  setQuickButtons
+  setQuickButtons,
+  toggleVoice,
+  toggleVoiceModel,
+  toggleCancelVoice,
+  getCancelVoiceState
 };

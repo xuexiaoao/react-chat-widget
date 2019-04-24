@@ -14,6 +14,7 @@ const WidgetLayout = props => (
   >
     {props.showChat &&
       <Conversation
+        inputRef={props.inputRef}
         title={props.title}
         subtitle={props.subtitle}
         sendMessage={props.onSendMessage}
@@ -26,6 +27,14 @@ const WidgetLayout = props => (
         disabledInput={props.disabledInput}
         autofocus={props.autofocus}
         titleAvatar={props.titleAvatar}
+        customSender={props.customSender}
+        onTap={props.onTap}
+        onPress={props.onPress}
+        onPressUp={props.onPressUp}
+        onPanUp ={props.onPanUp }
+        onPanLeft={props.onPanLeft}
+        onPanRight={props.onPanRight}
+        onPanDown={props.onPanDown}
       />
     }
     {props.customLauncher ?
@@ -54,7 +63,14 @@ WidgetLayout.propTypes = {
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
-  customLauncher: PropTypes.func
+  customLauncher: PropTypes.func,
+  onTap: PropTypes.func,
+  onPress: PropTypes.func,
+  onPressUp: PropTypes.func,
+  onPanUp: PropTypes.func,
+  onPanLeft: PropTypes.func,
+  onPanRight: PropTypes.func,
+  onPanDown: PropTypes.func
 };
 
 export default connect(store => ({

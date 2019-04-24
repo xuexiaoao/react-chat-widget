@@ -26,9 +26,10 @@ export function addResponseMessage(text) {
   };
 }
 
-export function toggleMsgLoader() {
+export function toggleMsgLoader(payload) {
   return {
-    type: actions.TOGGLE_MSG_LOADER
+    type: actions.TOGGLE_MSG_LOADER,
+    payload
   }
 }
 
@@ -64,5 +65,23 @@ export function setQuickButtons(buttons) {
   return {
     type: actions.SET_QUICK_BUTTONS,
     buttons
+  }
+}
+
+export function toggleVioce(){
+  return {
+    type: actions.TOGGLE_VOICE
+  }
+}
+
+export function toggleVoiceModel(){
+  return {
+    type: actions.TOGGEL_VOICE_MODEL
+  }
+}
+
+export function toggleCancelVoice(){
+  return {
+    type: actions.TOGGEL_CANCEL_VOICE
   }
 }

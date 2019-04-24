@@ -8,6 +8,7 @@ import store from '../src/store/store';
 const ConnectedWidget = props =>
   <Provider store={store}>
     <Widget
+      inputRef={props.inputRef}
       title={props.title}
       titleAvatar={props.titleAvatar}
       subtitle={props.subtitle}
@@ -20,6 +21,14 @@ const ConnectedWidget = props =>
       badge={props.badge}
       autofocus={props.autofocus}
       customLauncher={props.launcher}
+      customSender={props.customSender}
+      onTap={props.onTap}
+      onPress={props.onPress}
+      onPressUp={props.onPressUp}
+      onPanUp ={props.onPanUp }
+      onPanLeft={props.onPanLeft}
+      onPanRight={props.onPanRight}
+      onPanDown={props.onPanDown}
     />
   </Provider>;
 
@@ -35,7 +44,14 @@ ConnectedWidget.propTypes = {
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
-  launcher: PropTypes.func
+  launcher: PropTypes.func,
+  onTap: PropTypes.func,
+  onPress: PropTypes.func,
+  onPressUp: PropTypes.func,
+  onPanUp: PropTypes.func,
+  onPanLeft: PropTypes.func,
+  onPanRight: PropTypes.func,
+  onPanDown: PropTypes.func
 };
 
 ConnectedWidget.defaultProps = {

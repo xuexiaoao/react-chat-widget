@@ -13,8 +13,8 @@ export function addLinkSnippet(link) {
   store.dispatch(actions.addLinkSnippet(link));
 }
 
-export function toggleMsgLoader() {
-  store.dispatch(actions.toggleMsgLoader());
+export function toggleMsgLoader(payload) {
+  store.dispatch(actions.toggleMsgLoader(payload));
 }
 
 export function renderCustomComponent(component, props, showAvatar = false) {
@@ -39,4 +39,20 @@ export function isWidgetOpened() {
 
 export function setQuickButtons(buttons) {
   store.dispatch(actions.setQuickButtons(buttons));
+}
+
+export function toggleVoice(){
+  store.dispatch(actions.toggleVioce());
+}
+
+export function toggleVoiceModel(){
+  store.dispatch(actions.toggleVoiceModel());
+}
+
+export function toggleCancelVoice(){
+  store.dispatch(actions.toggleCancelVoice());
+}
+
+export function getCancelVoiceState(){
+  return store.getState().behavior.get('isCancelVoice');
 }

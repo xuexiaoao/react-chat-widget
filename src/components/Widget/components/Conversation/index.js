@@ -20,12 +20,23 @@ const Conversation = props =>
       profileAvatar={props.profileAvatar}
     />
     <QuickButtons onQuickButtonClicked={props.onQuickButtonClicked} />
-    <Sender
-      sendMessage={props.sendMessage}
-      placeholder={props.senderPlaceHolder}
-      disabledInput={props.disabledInput}
-      autofocus={props.autofocus}
-    />
+    {props.customSender?props.customSender:
+        <Sender
+        inputRef={props.inputRef}
+        sendMessage={props.sendMessage}
+        placeholder={props.senderPlaceHolder}
+        disabledInput={props.disabledInput}
+        autofocus={props.autofocus}
+        onTap={props.onTap}
+        onPress={props.onPress}
+        onPressUp={props.onPressUp}
+        onPanUp ={props.onPanUp }
+        onPanLeft={props.onPanLeft}
+        onPanRight={props.onPanRight}
+        onPanDown={props.onPanDown}
+      />
+    }
+
   </div>;
 
 Conversation.propTypes = {
@@ -38,7 +49,14 @@ Conversation.propTypes = {
   toggleChat: PropTypes.func,
   showCloseButton: PropTypes.bool,
   disabledInput: PropTypes.bool,
-  autofocus: PropTypes.bool
+  autofocus: PropTypes.bool,
+  onTap: PropTypes.func,
+  onPress: PropTypes.func,
+  onPressUp: PropTypes.func,
+  onPanUp: PropTypes.func,
+  onPanLeft: PropTypes.func,
+  onPanRight: PropTypes.func,
+  onPanDown: PropTypes.func
 };
 
 export default Conversation;

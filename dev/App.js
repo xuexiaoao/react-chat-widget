@@ -6,8 +6,14 @@ export default class App extends Component {
     addResponseMessage('Welcome to this awesome chat!');
   }
 
+  componentDidUpdate() {
+    if(this.WdgetInput){
+      WdgetInput.focus();
+    }
+  }
+
   handleNewUserMessage = (newMessage) => {    
-    toggleMsgLoader();
+    toggleMsgLoader({userInput:'right'});
     setTimeout(() => {
       toggleMsgLoader();      
       if (newMessage === 'fruits') {
@@ -23,6 +29,43 @@ export default class App extends Component {
     setQuickButtons([]);
   }
 
+  onTap = (gestureStatus)=>{
+    if(this.props.onTap){
+      this.props.onTap(gestureStatus);
+    }else{
+      console.log(gestureStatus);
+    }
+  }
+
+  onPress = (gestureStatus)=>{
+    if(this.props.onPress){
+      this.props.onPress(gestureStatus);
+    }else{
+      console.log(gestureStatus);
+      console.log('开始录音');
+    }
+  }
+
+  onPressOut = (gestureStatus)=>{
+    if(this.props.onPressOut){
+      this.props.onPressOut(gestureStatus);
+    }else{
+      console.log(gestureStatus);
+      console.log('停止录音，返回mediaId');
+      console.log('调用语音转文本接口');
+      console.log('发送消息')
+    }
+  }
+
+  onSwipeUp = (gestureStatus)=>{
+    if(this.props.onSwipeUp){
+      this.props.onSwipeUp(gestureStatus);
+    }else{
+      console.log(gestureStatus);
+    }
+  }
+
+
   render() {
     return (
       <Widget
@@ -32,6 +75,7 @@ export default class App extends Component {
         handleNewUserMessage={this.handleNewUserMessage}
         handleQuickButtonClicked={this.handleQuickButtonClicked}
         badge={1}
+        inputRef={DOM=>{this.WdgetInput=DOM;}}
       />
     );
   }

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 const Loader = props => 
-<div className={`loader ${props.typing && 'active'}`}>
+<div className={`loader ${props.typing && 'active'} ${props.typing && props.userInput && 'userInput'}`}>
   <div className="loader-container">
     <span className="loader-dots"></span>
     <span className="loader-dots"></span>
